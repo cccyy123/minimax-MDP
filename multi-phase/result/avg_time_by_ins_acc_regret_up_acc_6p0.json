@@ -1,0 +1,48 @@
+{
+    "source_file": "/Users/cyz21/cyz/python/minimax-MDP/multi-phase/result/result_decrease_K_multi_regret.json",
+    "dataset": "regret",
+    "method": "up",
+    "accuracy_func_requested": 6.0,
+    "accuracy_func_selected": 6.1020408163265305,
+    "is_exact_match": false,
+    "tolerance": 1e-09,
+    "group_size": 50,
+    "num_groups": 4,
+    "matched_indices": [
+        10,
+        60,
+        110,
+        160
+    ],
+    "loop_count_key": "phase_inner_loop_count",
+    "results": [
+        {
+            "group_index": 0,
+            "ins_acc": "1.04",
+            "avg_running_time": 4.09674279297,
+            "num_configs_matched": 1,
+            "avg_phase_inner_loop_count": 3482134.4
+        },
+        {
+            "group_index": 1,
+            "ins_acc": "1.07",
+            "avg_running_time": 2.679900241070014,
+            "num_configs_matched": 1,
+            "avg_phase_inner_loop_count": 2407087.74
+        },
+        {
+            "group_index": 2,
+            "ins_acc": "1.1",
+            "avg_running_time": 1.4531131398099957,
+            "num_configs_matched": 1,
+            "avg_phase_inner_loop_count": 1321794.14
+        },
+        {
+            "group_index": 3,
+            "ins_acc": "oracle",
+            "avg_running_time": 3.739204325930009,
+            "num_configs_matched": 1,
+            "avg_phase_inner_loop_count": 3477037.96
+        }
+    ]
+}

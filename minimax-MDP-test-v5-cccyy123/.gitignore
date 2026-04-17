@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Python cache/env
+**/__pycache__/
+**/*.pyc
+**/.venv/
+
+# Nested repo metadata backup
+minimax-MDP-test-v5-cccyy123/.git.backup/
+
+# Large generated result files (over GitHub 100MB limit)
+minimax-MDP-test-v5-cccyy123/results/generate_demand_horizon.json
+minimax-MDP-test-v5-cccyy123/results/generate_horizon.json
+minimax-MDP-test-v5-cccyy123/results/generate_shift.json
+multi-phase/result/generate_decrease_K_multi_ratio.json
+multi-phase/result/generate_decrease_K_multi_regret.json
