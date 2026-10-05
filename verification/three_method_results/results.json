@@ -1,0 +1,579 @@
+{
+  "metadata": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "script_sha256": "d123ec5b751d5c5c9d7ca2575da24aea4425b1987a12d73229ffe09faac30c16",
+    "command": [
+      "solver_validation/compare_three_methods.py",
+      "--self-test"
+    ],
+    "self_tests_run": true,
+    "lp_primal_dual_feasibility_tolerance": 1e-09,
+    "lp_solver": "HiGHS dual simplex",
+    "dp_arithmetic": "float64; no iterative optimizer tolerance",
+    "instances_with_single_switch_ratio_gap": 4,
+    "selection": "One analytical control and four deliberately chosen single-switch ratio counterexamples; not a random sample.",
+    "warning": "Single-switch ratio is a restricted-game optimum, not a full-game performance guarantee."
+  },
+  "results": [
+    {
+      "instance": {
+        "name": "single_period",
+        "lower": "1",
+        "upper": "3",
+        "deltas": [
+          "2"
+        ],
+        "capacities": [
+          "3"
+        ],
+        "p": "3",
+        "c": "1"
+      },
+      "description": "Single period; fractional optimal orders; no prediction updates.",
+      "metrics": {
+        "regret": {
+          "closed_form": "4/3",
+          "single_switch_lp": {
+            "value": 1.3333333333333333,
+            "lower": "6004799503160661/4503599627370496",
+            "upper": "750599937895083/562949953421312",
+            "certificate_gap": "3/4503599627370496",
+            "max_primal_violation": 8.881784197001252e-16,
+            "variables": 2,
+            "constraints": 6,
+            "solve_seconds": 0.0010103750973939896,
+            "scope": "EC.3.4 single-switch restricted adversary; continuous orders"
+          },
+          "dp": [
+            {
+              "value": 1.335,
+              "mesh": "1/200",
+              "continuous_lower_discretization_only": 1.325,
+              "continuous_upper_discretization_only": 1.345,
+              "state_cells": 241602,
+              "peak_array_cells": 241001,
+              "seconds": 0.002274999860674143
+            },
+            {
+              "value": 1.3339999999999996,
+              "mesh": "1/1000",
+              "continuous_lower_discretization_only": 1.3319999999999996,
+              "continuous_upper_discretization_only": 1.3359999999999996,
+              "state_cells": 6008002,
+              "peak_array_cells": 6005001,
+              "seconds": 0.061403583036735654
+            },
+            {
+              "value": 1.3335,
+              "mesh": "1/2000",
+              "continuous_lower_discretization_only": 1.3325,
+              "continuous_upper_discretization_only": 1.3344999999999998,
+              "state_cells": 24016002,
+              "peak_array_cells": 24010001,
+              "seconds": 0.2766533747781068
+            }
+          ]
+        },
+        "ratio": {
+          "closed_form": "3/5",
+          "single_switch_lp": {
+            "value": 0.6,
+            "lower": "5404319552844595/9007199254740992",
+            "upper": "10808639105689191/18014398509481984",
+            "certificate_gap": "1/18014398509481984",
+            "max_primal_violation": 0.0,
+            "variables": 2,
+            "constraints": 6,
+            "solve_seconds": 0.0015570418909192085,
+            "scope": "EC.3.4 single-switch restricted adversary; continuous orders"
+          },
+          "dp": [
+            {
+              "value": 0.6,
+              "mesh": "1/200",
+              "continuous_lower_discretization_only": 0.5970149253731343,
+              "continuous_upper_discretization_only": 0.605,
+              "state_cells": 241602,
+              "peak_array_cells": 241001,
+              "seconds": 0.0016497501637786627
+            },
+            {
+              "value": 0.6,
+              "mesh": "1/1000",
+              "continuous_lower_discretization_only": 0.5994005994005994,
+              "continuous_upper_discretization_only": 0.601,
+              "state_cells": 6008002,
+              "peak_array_cells": 6005001,
+              "seconds": 0.048739666817709804
+            },
+            {
+              "value": 0.6,
+              "mesh": "1/2000",
+              "continuous_lower_discretization_only": 0.5997001499250375,
+              "continuous_upper_discretization_only": 0.6004999999999999,
+              "state_cells": 24016002,
+              "peak_array_cells": 24010001,
+              "seconds": 0.24514320911839604
+            }
+          ]
+        }
+      }
+    },
+    {
+      "instance": {
+        "name": "EC_3_4",
+        "lower": "1",
+        "upper": "7",
+        "deltas": [
+          "5",
+          "4",
+          "1"
+        ],
+        "capacities": [
+          "4",
+          "2",
+          "1"
+        ],
+        "p": "2",
+        "c": "1"
+      },
+      "description": "Existing EC.3.4 counterexample; declining capacity and an abrupt final accuracy improvement.",
+      "metrics": {
+        "regret": {
+          "closed_form": "3/2",
+          "single_switch_lp": {
+            "value": 1.5,
+            "lower": "3/2",
+            "upper": "3/2",
+            "certificate_gap": "0",
+            "max_primal_violation": 0.0,
+            "variables": 10,
+            "constraints": 34,
+            "solve_seconds": 0.0014359159395098686,
+            "scope": "EC.3.4 single-switch restricted adversary; continuous orders"
+          },
+          "dp": [
+            {
+              "value": 1.5000000000000009,
+              "mesh": "1/200",
+              "continuous_lower_discretization_only": 1.495000000000001,
+              "continuous_upper_discretization_only": 1.5050000000000008,
+              "state_cells": 3928404,
+              "peak_array_cells": 1682601,
+              "seconds": 0.02981225005351007
+            },
+            {
+              "value": 1.5000000000000009,
+              "mesh": "1/1000",
+              "continuous_lower_discretization_only": 1.499000000000001,
+              "continuous_upper_discretization_only": 1.5010000000000008,
+              "state_cells": 98042004,
+              "peak_array_cells": 42013001,
+              "seconds": 0.9416188749019057
+            },
+            {
+              "value": 1.5000000000000009,
+              "mesh": "1/2000",
+              "continuous_lower_discretization_only": 1.499500000000001,
+              "continuous_upper_discretization_only": 1.5005000000000008,
+              "state_cells": 392084004,
+              "peak_array_cells": 168026001,
+              "seconds": 4.309560124995187
+            }
+          ]
+        },
+        "ratio": {
+          "closed_form": "1/2",
+          "single_switch_lp": {
+            "value": 0.6666666666666666,
+            "lower": "1501199875790165/2251799813685248",
+            "upper": "12009599006321323/18014398509481984",
+            "certificate_gap": "3/18014398509481984",
+            "max_primal_violation": 0.0,
+            "variables": 10,
+            "constraints": 34,
+            "solve_seconds": 0.0013655000366270542,
+            "scope": "EC.3.4 single-switch restricted adversary; continuous orders"
+          },
+          "dp": [
+            {
+              "value": 0.5,
+              "mesh": "1/200",
+              "continuous_lower_discretization_only": 0.4975124378109453,
+              "continuous_upper_discretization_only": 0.505,
+              "state_cells": 3928404,
+              "peak_array_cells": 1682601,
+              "seconds": 0.02937216591089964
+            },
+            {
+              "value": 0.5,
+              "mesh": "1/1000",
+              "continuous_lower_discretization_only": 0.4995004995004995,
+              "continuous_upper_discretization_only": 0.501,
+              "state_cells": 98042004,
+              "peak_array_cells": 42013001,
+              "seconds": 0.9283516670111567
+            },
+            {
+              "value": 0.5,
+              "mesh": "1/2000",
+              "continuous_lower_discretization_only": 0.49975012493753124,
+              "continuous_upper_discretization_only": 0.5005,
+              "state_cells": 392084004,
+              "peak_array_cells": 168026001,
+              "seconds": 3.6509447910357267
+            }
+          ]
+        }
+      }
+    },
+    {
+      "instance": {
+        "name": "four_period",
+        "lower": "2",
+        "upper": "8",
+        "deltas": [
+          "5",
+          "4",
+          "3",
+          "1"
+        ],
+        "capacities": [
+          "4",
+          "2",
+          "1",
+          "1"
+        ],
+        "p": "3",
+        "c": "1"
+      },
+      "description": "Four periods; higher demand floor, declining then flat capacity, gradual accuracy gains followed by a final jump.",
+      "metrics": {
+        "regret": {
+          "closed_form": "4/3",
+          "single_switch_lp": {
+            "value": 1.3333333333333333,
+            "lower": "6004799503160661/4503599627370496",
+            "upper": "750599937895083/562949953421312",
+            "certificate_gap": "3/4503599627370496",
+            "max_primal_violation": 0.0,
+            "variables": 15,
+            "constraints": 48,
+            "solve_seconds": 0.001501333201304078,
+            "scope": "EC.3.4 single-switch restricted adversary; continuous orders"
+          },
+          "dp": [
+            {
+              "value": 1.3350000000000009,
+              "mesh": "1/200",
+              "continuous_lower_discretization_only": 1.3250000000000008,
+              "continuous_upper_discretization_only": 1.3450000000000009,
+              "state_cells": 5451405,
+              "peak_array_cells": 1922801,
+              "seconds": 0.040312041994184256
+            },
+            {
+              "value": 1.3340000000000005,
+              "mesh": "1/1000",
+              "continuous_lower_discretization_only": 1.3320000000000005,
+              "continuous_upper_discretization_only": 1.3360000000000005,
+              "state_cells": 136057005,
+              "peak_array_cells": 48014001,
+              "seconds": 1.225436083972454
+            },
+            {
+              "value": 1.3335000000000017,
+              "mesh": "1/2000",
+              "continuous_lower_discretization_only": 1.3325000000000018,
+              "continuous_upper_discretization_only": 1.3345000000000016,
+              "state_cells": 544114005,
+              "peak_array_cells": 192028001,
+              "seconds": 5.105768374865875
+            }
+          ]
+        },
+        "ratio": {
+          "closed_form": "7/9",
+          "single_switch_lp": {
+            "value": 0.8571428571428571,
+            "lower": "7720456504063707/9007199254740992",
+            "upper": "15440913008127415/18014398509481984",
+            "certificate_gap": "1/18014398509481984",
+            "max_primal_violation": 0.0,
+            "variables": 15,
+            "constraints": 48,
+            "solve_seconds": 0.0017597919795662165,
+            "scope": "EC.3.4 single-switch restricted adversary; continuous orders"
+          },
+          "dp": [
+            {
+              "value": 0.7775,
+              "mesh": "1/200",
+              "continuous_lower_discretization_only": 0.7755610972568578,
+              "continuous_upper_discretization_only": 0.7799999999999999,
+              "state_cells": 5451405,
+              "peak_array_cells": 1922801,
+              "seconds": 0.039975417079403996
+            },
+            {
+              "value": 0.7777499999999999,
+              "mesh": "1/1000",
+              "continuous_lower_discretization_only": 0.7773613193403298,
+              "continuous_upper_discretization_only": 0.7782499999999999,
+              "state_cells": 136057005,
+              "peak_array_cells": 48014001,
+              "seconds": 1.3286166249308735
+            },
+            {
+              "value": 0.7777499999999999,
+              "mesh": "1/2000",
+              "continuous_lower_discretization_only": 0.7775556110972256,
+              "continuous_upper_discretization_only": 0.7779999999999999,
+              "state_cells": 544114005,
+              "peak_array_cells": 192028001,
+              "seconds": 5.0121071671601385
+            }
+          ]
+        }
+      }
+    },
+    {
+      "instance": {
+        "name": "six_period",
+        "lower": "2",
+        "upper": "8",
+        "deltas": [
+          "5",
+          "5",
+          "4",
+          "3",
+          "2",
+          "1"
+        ],
+        "capacities": [
+          "3",
+          "2",
+          "1",
+          "1/2",
+          "1",
+          "1/2"
+        ],
+        "p": "3",
+        "c": "2"
+      },
+      "description": "Six periods; an initial accuracy plateau, a capacity rebound on day 5, and a smaller profit margin.",
+      "metrics": {
+        "regret": {
+          "closed_form": "4/3",
+          "single_switch_lp": {
+            "value": 1.3333333333333333,
+            "lower": "6004799503160661/4503599627370496",
+            "upper": "750599937895083/562949953421312",
+            "certificate_gap": "3/4503599627370496",
+            "max_primal_violation": 8.881784197001252e-16,
+            "variables": 23,
+            "constraints": 68,
+            "solve_seconds": 0.0017131657805293798,
+            "scope": "EC.3.4 single-switch restricted adversary; continuous orders"
+          },
+          "dp": [
+            {
+              "value": 1.3350000000000017,
+              "mesh": "1/200",
+              "continuous_lower_discretization_only": 1.3300000000000018,
+              "continuous_upper_discretization_only": 1.3450000000000017,
+              "state_cells": 7055607,
+              "peak_array_cells": 1922801,
+              "seconds": 0.0511179999448359
+            },
+            {
+              "value": 1.3340000000000014,
+              "mesh": "1/1000",
+              "continuous_lower_discretization_only": 1.3330000000000015,
+              "continuous_upper_discretization_only": 1.3360000000000014,
+              "state_cells": 176078007,
+              "peak_array_cells": 48014001,
+              "seconds": 1.5226964999455959
+            },
+            {
+              "value": 1.3335000000000026,
+              "mesh": "1/2000",
+              "continuous_lower_discretization_only": 1.3330000000000026,
+              "continuous_upper_discretization_only": 1.3345000000000025,
+              "state_cells": 704156007,
+              "peak_array_cells": 192028001,
+              "seconds": 7.239456832874566
+            }
+          ]
+        },
+        "ratio": {
+          "closed_form": "7/10",
+          "single_switch_lp": {
+            "value": 0.75,
+            "lower": "3/4",
+            "upper": "3/4",
+            "certificate_gap": "0",
+            "max_primal_violation": 0.0,
+            "variables": 23,
+            "constraints": 68,
+            "solve_seconds": 0.0022990000434219837,
+            "scope": "EC.3.4 single-switch restricted adversary; continuous orders"
+          },
+          "dp": [
+            {
+              "value": 0.6999999999999997,
+              "mesh": "1/200",
+              "continuous_lower_discretization_only": 0.6982543640897754,
+              "continuous_upper_discretization_only": 0.7024999999999997,
+              "state_cells": 7055607,
+              "peak_array_cells": 1922801,
+              "seconds": 0.05133141600526869
+            },
+            {
+              "value": 0.6999999999999997,
+              "mesh": "1/1000",
+              "continuous_lower_discretization_only": 0.6996501749125434,
+              "continuous_upper_discretization_only": 0.7004999999999997,
+              "state_cells": 176078007,
+              "peak_array_cells": 48014001,
+              "seconds": 1.668959999922663
+            },
+            {
+              "value": 0.6999999999999997,
+              "mesh": "1/2000",
+              "continuous_lower_discretization_only": 0.699825043739065,
+              "continuous_upper_discretization_only": 0.7002499999999997,
+              "state_cells": 704156007,
+              "peak_array_cells": 192028001,
+              "seconds": 6.29562716698274
+            }
+          ]
+        }
+      }
+    },
+    {
+      "instance": {
+        "name": "ten_period",
+        "lower": "1/2",
+        "upper": "9/2",
+        "deltas": [
+          "7/2",
+          "7/2",
+          "3",
+          "3",
+          "5/2",
+          "2",
+          "3/2",
+          "1",
+          "1/2",
+          "1/2"
+        ],
+        "capacities": [
+          "3/2",
+          "1/2",
+          "1/2",
+          "1/2",
+          "3/10",
+          "1/5",
+          "1/5",
+          "1/10",
+          "1/10",
+          "3/5"
+        ],
+        "p": "3",
+        "c": "1"
+      },
+      "description": "Ten periods; multiple accuracy plateaus, fractional demand/capacity, and a final capacity rebound.",
+      "metrics": {
+        "regret": {
+          "closed_form": "1",
+          "single_switch_lp": {
+            "value": 0.9999999999999997,
+            "lower": "18014398509481983/18014398509481984",
+            "upper": "5629499534213127/5629499534213120",
+            "certificate_gap": "117/90071992547409920",
+            "max_primal_violation": 1.6653345369377348e-16,
+            "variables": 49,
+            "constraints": 128,
+            "solve_seconds": 0.00234795780852437,
+            "scope": "EC.3.4 single-switch restricted adversary; continuous orders"
+          },
+          "dp": [
+            {
+              "value": 1.0000000000000018,
+              "mesh": "1/200",
+              "continuous_lower_discretization_only": 0.9900000000000018,
+              "continuous_upper_discretization_only": 1.0100000000000018,
+              "state_cells": 4154511,
+              "peak_array_cells": 721701,
+              "seconds": 0.026869000168517232
+            },
+            {
+              "value": 1.0000000000000018,
+              "mesh": "1/1000",
+              "continuous_lower_discretization_only": 0.9980000000000018,
+              "continuous_upper_discretization_only": 1.0020000000000018,
+              "state_cells": 103572511,
+              "peak_array_cells": 18008501,
+              "seconds": 0.9510361670982093
+            },
+            {
+              "value": 1.0000000000000018,
+              "mesh": "1/2000",
+              "continuous_lower_discretization_only": 0.9990000000000018,
+              "continuous_upper_discretization_only": 1.0010000000000017,
+              "state_cells": 414145011,
+              "peak_array_cells": 72017001,
+              "seconds": 3.475783708039671
+            }
+          ]
+        },
+        "ratio": {
+          "closed_form": "2/3",
+          "single_switch_lp": {
+            "value": 0.75,
+            "lower": "5066549580791807/6755399441055744",
+            "upper": "3/4",
+            "certificate_gap": "1/6755399441055744",
+            "max_primal_violation": 1.6653345369377348e-16,
+            "variables": 49,
+            "constraints": 128,
+            "solve_seconds": 0.0019447910599410534,
+            "scope": "EC.3.4 single-switch restricted adversary; continuous orders"
+          },
+          "dp": [
+            {
+              "value": 0.6657142857142857,
+              "mesh": "1/200",
+              "continuous_lower_discretization_only": 0.6591230551626591,
+              "continuous_upper_discretization_only": 0.6757142857142857,
+              "state_cells": 4154511,
+              "peak_array_cells": 721701,
+              "seconds": 0.02490554191172123
+            },
+            {
+              "value": 0.6665714285714286,
+              "mesh": "1/1000",
+              "continuous_lower_discretization_only": 0.6652409466780724,
+              "continuous_upper_discretization_only": 0.6685714285714286,
+              "state_cells": 103572511,
+              "peak_array_cells": 18008501,
+              "seconds": 0.8468967920634896
+            },
+            {
+              "value": 0.6665714285714286,
+              "mesh": "1/2000",
+              "continuous_lower_discretization_only": 0.6659055230483802,
+              "continuous_upper_discretization_only": 0.6675714285714286,
+              "state_cells": 414145011,
+              "peak_array_cells": 72017001,
+              "seconds": 3.5649290420114994
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
