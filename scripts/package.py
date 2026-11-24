@@ -1,4 +1,4 @@
-"""Build a review ZIP, including large input JSON files ignored by Git."""
+"""Build a compact review ZIP with restorable compressed inputs."""
 import argparse
 import hashlib
 import json
@@ -7,6 +7,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDE = {'.git', '.venv', '__pycache__', '.DS_Store', '.matplotlib'}
+LARGE_RAW_INPUTS = {entry['path'] for entry in json.loads((ROOT/'data/inputs/manifest.json').read_text())}
 
 
 def main():
@@ -19,7 +20,7 @@ def main():
     if output.exists():
         parser.error('Output exists; choose a new filename.')
     files = sorted(p for p in ROOT.rglob('*') if p.is_file()
-                   and not p.relative_to(ROOT).as_posix().startswith('data/inputs/')
+                   and p.relative_to(ROOT).as_posix() not in LARGE_RAW_INPUTS
                    and not any(part in EXCLUDE for part in p.relative_to(ROOT).parts)
                    and p.suffix not in {'.pyc', '.zip'})
     manifest = []

@@ -54,6 +54,6 @@ The detailed guide also explains individual experiment commands.
 python scripts/package.py --output ../minimax-MDP-code.zip
 ```
 
-The ZIP includes the restored input files, a checksum manifest, and
-instructions. The compressed Git copies, Git metadata, and Python caches are
-excluded. Restore the inputs before packaging a fresh Git clone.
+The ZIP includes the same compressed inputs as the Git repository, a checksum
+manifest, and instructions. The one-command workflow restores and verifies
+the inputs after extraction. Git metadata and Python caches are excluded.
