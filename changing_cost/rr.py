@@ -8,9 +8,10 @@ from pathlib import Path
 import numpy as np
 
 import phase_reduction
+from numerics import sequential_sum as sum
 
 # Maximum number of CPU cores to use; <=0 means use all available cores.
-max_cores = 70
+max_cores = int(os.environ.get("MINIMAX_WORKERS", "4"))
 
 
 # Measure CPU time (process time) instead of wall-clock elapsed time.

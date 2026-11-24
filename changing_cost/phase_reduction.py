@@ -1,4 +1,5 @@
 import math
+from numerics import sequential_sum as sum
 
 def phase_reduction(diff_tau,matrix_L,L,matrix_R,R,V,delta,accuracy):
     """

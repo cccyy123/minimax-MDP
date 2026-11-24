@@ -13,7 +13,7 @@ w=(num_ins_acc+1)*num_sol_acc
 n_mc=400  #500
 num_seeds_per_example = 100 #100
 # 最多使用的 CPU 核数；设为 0 或负数表示使用全部可用核心
-max_cores = 100
+max_cores = int(os.environ.get("MINIMAX_WORKERS", "4"))
 
 T_list = [200 ]*w
 

@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 
 METHOD_ORDER = ("up", "mid", "lw")
 PLOT_TRUE_TAUK_POINTS = False
+# The generator appends 50 exact-cost configurations after 3 x 50 rounded-cost
+# configurations. group_sizes contains sample counts (100), not configuration counts.
+EXACT_COST_CONFIGURATIONS = 50
 DEFAULT_METHOD_STYLES = {
     "up": {"color": "#1f77b4", "marker": "o", "label": "up"},
     "mid": {"color": "#2ca02c", "marker": "^", "label": "mid"},
@@ -88,12 +91,9 @@ def _maybe_drop_true_group(nested, result_data, include_true_group):
     if not group_sizes:
         return nested
 
-    true_group_size = group_sizes[-1]
-    if not isinstance(true_group_size, int):
-        return nested
-    if true_group_size <= 0 or true_group_size > len(nested):
-        return nested
-    return nested[:-true_group_size]
+    if len(group_sizes) != len(nested) or len(nested) != 200:
+        raise ValueError("Expected 200 configurations in the changing-cost plot data")
+    return nested[:-EXACT_COST_CONFIGURATIONS]
 
 
 def _get_method_means(result_data, method, include_true_group):

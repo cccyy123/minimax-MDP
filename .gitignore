@@ -1,17 +1,14 @@
-# macOS
 .DS_Store
-
-# Python cache/env
 **/__pycache__/
 **/*.pyc
 **/.venv/
+**/.matplotlib/
+*.zip
+*.zip.sha256
 
-# Nested repo metadata backup
-minimax-MDP-test-v5-cccyy123/.git.backup/
-
-# Large generated result files (over GitHub 100MB limit)
-minimax-MDP-test-v5-cccyy123/results/generate_demand_horizon.json
-minimax-MDP-test-v5-cccyy123/results/generate_horizon.json
-minimax-MDP-test-v5-cccyy123/results/generate_shift.json
-multi-phase/result/generate_decrease_K_multi_ratio.json
-multi-phase/result/generate_decrease_K_multi_regret.json
+# Raw inputs are reconstructed from compressed copies committed under data/inputs/.
+constant_cost/results/generate_demand_horizon.json
+constant_cost/results/generate_horizon.json
+constant_cost/results/generate_shift.json
+changing_cost/result/generate_decrease_K_multi_ratio.json
+changing_cost/result/generate_decrease_K_multi_regret.json

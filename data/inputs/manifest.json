@@ -1,0 +1,32 @@
+[
+  {
+    "path": "constant_cost/results/generate_shift.json",
+    "compressed": "data/inputs/generate_shift.json.xz",
+    "bytes": 236980837,
+    "sha256": "9eafb1663e00ccc1c95eedac70fd621a67305233c51b9eea6fe1b72eb34fec7e"
+  },
+  {
+    "path": "constant_cost/results/generate_horizon.json",
+    "compressed": "data/inputs/generate_horizon.json.xz",
+    "bytes": 109888782,
+    "sha256": "1471ba7773bc142f9e1c5b84e6ffb888c8af27abc1f1ab0c1f2d0adbbb83778f"
+  },
+  {
+    "path": "constant_cost/results/generate_demand_horizon.json",
+    "compressed": "data/inputs/generate_demand_horizon.json.xz",
+    "bytes": 137353272,
+    "sha256": "dfe8ccaabb6ddb78228cb813041fc030ac6f2f3a13d52818c7160ff542cb8765"
+  },
+  {
+    "path": "changing_cost/result/generate_decrease_K_multi_ratio.json",
+    "compressed": "data/inputs/generate_decrease_K_multi_ratio.json.xz",
+    "bytes": 562654987,
+    "sha256": "cad48ada3d0960203cc3f30a49c3ed4aeb31dba7dcf170b5001b234fec128b38"
+  },
+  {
+    "path": "changing_cost/result/generate_decrease_K_multi_regret.json",
+    "compressed": "data/inputs/generate_decrease_K_multi_regret.json.xz",
+    "bytes": 562654388,
+    "sha256": "0f13055a503c847fdbd8aa5adf20b26d0469b08b16182fea6b02e3e0e1659e16"
+  }
+]

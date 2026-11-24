@@ -1,0 +1,96 @@
+{
+  "reproduction_command": "python scripts/reproduce_paper.py --workers 4 --output <new-output-directory>",
+  "all_nine_steps_passed": true,
+  "steps": [
+    {
+      "name": "check_compiled_phase.py",
+      "exit_code": 0
+    },
+    {
+      "name": "check_vectorized_dp.py",
+      "exit_code": 0
+    },
+    {
+      "name": "reproduce.py",
+      "exit_code": 0
+    },
+    {
+      "name": "reproduce.py",
+      "exit_code": 0
+    },
+    {
+      "name": "verify_tables.py",
+      "exit_code": 0
+    },
+    {
+      "name": "replay_prediction_figures.py",
+      "exit_code": 0
+    },
+    {
+      "name": "replay_changing_cost_all.py",
+      "exit_code": 0
+    },
+    {
+      "name": "build_replayed_figures.py",
+      "exit_code": 0
+    },
+    {
+      "name": "export_tables.py",
+      "exit_code": 0
+    }
+  ],
+  "constant_cost_tables": [
+    {
+      "dataset": "noisy",
+      "runs": 80,
+      "max_absolute_error": 8.881784197001252e-16
+    },
+    {
+      "dataset": "_perfect_only",
+      "runs": 80,
+      "max_absolute_error": 1.7763568394002505e-15
+    }
+  ],
+  "prediction_experiments": [
+    {
+      "family": "shift",
+      "objective": "ratio",
+      "max_error": 0
+    },
+    {
+      "family": "shift",
+      "objective": "rgt",
+      "max_error": 5.684341886080802e-14
+    },
+    {
+      "family": "demand_horizon",
+      "objective": "ratio",
+      "max_error": 0
+    },
+    {
+      "family": "demand_horizon",
+      "objective": "rgt",
+      "max_error": 1.1368683772161603e-13
+    }
+  ],
+  "changing_cost": [
+    {
+      "objective": "ratio",
+      "configurations": 150,
+      "samples_per_configuration": 100,
+      "policy_values": 45000,
+      "max_error": 1.1102230246251565e-15,
+      "mismatches": 0
+    },
+    {
+      "objective": "regret",
+      "configurations": 150,
+      "samples_per_configuration": 100,
+      "policy_values": 45000,
+      "max_error": 1.1368683772161603e-12,
+      "mismatches": 0
+    }
+  ],
+  "figures_ec5_ec6_byte_equal_to_current_manuscript": true,
+  "timing_note": "Plot timings are archived measurements, not the replay wall time."
+}

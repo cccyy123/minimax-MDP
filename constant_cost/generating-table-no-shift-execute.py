@@ -174,16 +174,17 @@ c_list = [1] * w
 p_list = [2] * w
 n_mc_list = [100] * w
 
-generate_dataset(
-    T_list=T_list,
-    maxpi_list=maxpi_list,
-    rangedemand_list=rangedemand_list,
-    c_list=c_list,
-    p_list=p_list,
-    n_mc_list=n_mc_list,
-    seed_values=seed_values,
-    output_path=RESULTS_DIR / "generate_table.json",
-)
+if __name__ == "__main__":
+    generate_dataset(
+        T_list=T_list,
+        maxpi_list=maxpi_list,
+        rangedemand_list=rangedemand_list,
+        c_list=c_list,
+        p_list=p_list,
+        n_mc_list=n_mc_list,
+        seed_values=seed_values,
+        output_path=RESULTS_DIR / "generate_table.json",
+    )
 
 
 
@@ -680,15 +681,12 @@ def run_ratio_and_regret(dataset, run_discrete=True):
     return ratio_result, rgt_result
 
 
-with open(RESULTS_DIR / "generate_table.json", "r", encoding="utf-8") as f:
-    demand_data = json.load(f)
-
-ratio_result, rgt_result = run_ratio_and_regret(demand_data, run_discrete=True)
-
-RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-
-with open(RESULTS_DIR / "result_ratio_table.json", "w", encoding="utf-8") as f:
-    json.dump(ratio_result, f, ensure_ascii=False, indent=4)
-
-with open(RESULTS_DIR / "result_rgt_table.json", "w", encoding="utf-8") as f:
-    json.dump(rgt_result, f, ensure_ascii=False, indent=4)
+if __name__ == "__main__":
+    with open(RESULTS_DIR / "generate_table.json", "r", encoding="utf-8") as f:
+        demand_data = json.load(f)
+    ratio_result, rgt_result = run_ratio_and_regret(demand_data, run_discrete=True)
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    with open(RESULTS_DIR / "result_ratio_table.json", "w", encoding="utf-8") as f:
+        json.dump(ratio_result, f, ensure_ascii=False, indent=4)
+    with open(RESULTS_DIR / "result_rgt_table.json", "w", encoding="utf-8") as f:
+        json.dump(rgt_result, f, ensure_ascii=False, indent=4)
