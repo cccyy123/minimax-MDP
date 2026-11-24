@@ -22,6 +22,10 @@ Optional accelerated recurrences were checked against the original loops:
 the NumPy DP on 40 small inputs under both objectives and additional archived
 cases; the compiled phase reduction on 60 cases with exact output agreement.
 Changing-cost summation order is explicit to preserve historical arithmetic.
+As a separate generator check, the first stored samples of the changing-cost,
+noisy constant-cost, and consistent-and-nested constant-cost datasets were
+regenerated from their recorded seeds and matched exactly. The full archived
+random-input datasets were not regenerated in this check.
 
 See `validation/summary.json` for the latest step completion, sample counts and
 numerical errors. Running instructions

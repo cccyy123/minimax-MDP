@@ -75,6 +75,25 @@ python scripts/export_tables.py --output ../experiment-tables
 python scripts/reproduce.py plots --output ../plots-from-results
 ```
 
+### 从随机种子重新生成输入
+
+一键复现使用随包保存的固定随机样本。若要检查样本**如何随机生成**，可以在新目录
+运行原始生成及求解脚本；每条命令都会先复制所需代码和数据，不覆盖本仓库中的存档：
+
+```sh
+python scripts/reproduce.py shift --output ../fresh-shift
+python scripts/reproduce.py demand-horizon --output ../fresh-demand-horizon
+python scripts/reproduce.py horizon --output ../fresh-horizon
+python scripts/reproduce.py constant-tables --output ../fresh-constant-tables
+python scripts/reproduce.py multi-phase --output ../fresh-changing-cost
+```
+
+常数成本生成器使用从 10 开始的固定种子；变成本生成器对每个配置使用种子
+5769–5868。consistent-and-nested 数据会从种子 10 开始尝试，并只保留满足条件的
+样本。生成器、NumPy 版本和参数都已随代码保存。完整重生并求解会比上面的一键
+重算耗时更长；目前已抽查三类数据的首个样本，重生值与存档完全一致，尚未对全部
+随机输入重新生成并逐字节比较。
+
 ## 4. 输入数据与计算约定
 
 - 输入 JSON 是复现材料的一部分，不应删除。一键复现使用这些固定样本，不重新采样。
